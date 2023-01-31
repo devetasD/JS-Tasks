@@ -9,13 +9,32 @@ atveju grąžins visų "users" vardus naujame masyve pvz., ['John Smith', 'Ann S
 -------------------------------------------------------------------------- */
 
 const users = [
-  { id: '1', name: 'John Smith', age: 20 },
-  { id: '2', name: 'Ann Smith', age: 24 },
-  { id: '3', name: 'Tom Jones', age: 31 },
-  { id: '4', name: 'Rose Peterson', age: 17 },
-  { id: '5', name: 'Alex John', age: 25 },
-  { id: '6', name: 'Ronald Jones', age: 63 },
-  { id: '7', name: 'Elton Smith', age: 16 },
-  { id: '8', name: 'Simon Peterson', age: 30 },
-  { id: '9', name: 'Daniel Cane', age: 51 },
+  { id: "1", name: "John Smith", age: 20 },
+  { id: "2", name: "Ann Smith", age: 24 },
+  { id: "3", name: "Tom Jones", age: 31 },
+  { id: "4", name: "Rose Peterson", age: 17 },
+  { id: "5", name: "Alex John", age: 25 },
+  { id: "6", name: "Ronald Jones", age: 63 },
+  { id: "7", name: "Elton Smith", age: 16 },
+  { id: "8", name: "Simon Peterson", age: 30 },
+  { id: "9", name: "Daniel Cane", age: 51 },
 ];
+
+// 1.
+
+function getUserAverageAge(users) {
+  const totalAge = users.reduce((sum, user) => sum + user.age, 0);
+  return totalAge / users.length;
+}
+
+const averageAge = Math.round(getUserAverageAge(users));
+console.log(`The average User age is ${averageAge}.`);
+
+// 2.
+
+function getUserNames(users) {
+  return users.map((user) => user.name);
+}
+console.log("Here is an array with all user names:");
+const userNames = getUserNames(users);
+console.log(userNames);

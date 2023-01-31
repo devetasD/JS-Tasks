@@ -8,4 +8,28 @@ Pastaba: Sukurta kortelė, kurioje yra informacija apie automobilį (brand), tur
 būti stilizuota su CSS ir būti responsive;
 -------------------------------------------------------------------------- */
 
-const ENDPOINT = 'cars.json';
+const ENDPOINT = "cars.json";
+fetch(ENDPOINT)
+  .then((response) => response.json())
+  .then((data) => {
+    createCards(data);
+  })
+  .catch((err) => console.log(err));
+
+function createCards(data) {
+  const outputDiv = document.getElementById("output");
+  outputDiv.innerHTML += `  <div class="row">`;
+  for (let i = 0; i < data.length; i++) {
+    const content = `
+    <div class="column">
+    <div class="card">
+    <h2>${data[i].brand}</h2>
+    <p>${data[i].models}</p> </div>
+  </div>
+       
+    `;
+
+    outputDiv.innerHTML += content;
+  }
+  outputDiv.innerHTML + `  </div>`;
+}

@@ -8,3 +8,20 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: rezultatas turi būti matomas pateikus formą ir atvaizduojamas
 <div id="output"></div> viduje. Gautus atsakymus stilizuokite naudojant CSS;
 ------------------------------------------------------------------- */
+
+const numberInput = document.querySelector("#search");
+const resultDisplay = document.querySelector("#output");
+
+document.querySelector("form").addEventListener("submit", convertWeight);
+
+function convertWeight(e) {
+  e.preventDefault();
+  const kilo = numberInput.value;
+  const pounds = kilo * 2.2046;
+  const grams = kilo / 0.001;
+  const ounces = kilo * 35.274;
+
+  const result = `Equals ${pounds} lb |or| ${grams} g |or| ${ounces} oz ;`;
+
+  resultDisplay.append(result);
+}
